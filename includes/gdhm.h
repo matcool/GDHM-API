@@ -4,7 +4,6 @@
 #if GDHM_API_IMPL == 1
 	#define GDHM_API __declspec(dllexport)
 #else
-	#pragma comment (lib, "ToastedMarshmellow.lib")
 	#define GDHM_API __declspec(dllimport)
 #endif
 
