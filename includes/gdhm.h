@@ -16,7 +16,6 @@
 		#define GDHM_WEAK 
 	#endif
 	#define GDHM_API __declspec(dllimport) GDHM_WEAK
-	#define GDHM_DEPRECARED(n)
 	#include <functional>
 	#include <string>
 	#include <vector>
@@ -50,8 +49,6 @@ namespace gdhm
 	};
 
 	#if GDHM_API_IMPL != 1
-
-	GDHM_DEPRECARED( struct Vec2 { float x = 0.f, y = 0.f; }; )
 
 	#define gdhm_new_id																		\
 		[]() -> int																			\
@@ -165,24 +162,6 @@ namespace gdhm
 		GDHM_API bool GDHM_FN input_hotkey(
 			const char* label,
 			std::uint8_t* key);
-	}
-
-	namespace utils
-	{
-		GDHM_DEPRECARED // These functions are deprecated, leaving it here for now, will clean it up later...
-		( 
-			// This will check whether the last item has just released
-			GDHM_API bool GDHM_FN last_item_just_released();
-
-			// These will manage window position
-			GDHM_API void GDHM_FN set_window_position(const float x_value, const float y_value);
-			GDHM_API Vec2 GDHM_FN get_window_position();
-			static void GDHM_FN set_window_position_x(const float x_value);
-			static void GDHM_FN set_window_position_y(const float y_value);
-
-			// These will manage window size
-			GDHM_API GDHM_DEPRECARED Vec2 GDHM_FN get_window_size(); 
-		);
 	}
 
 	// This will check whether GDHM is loaded
